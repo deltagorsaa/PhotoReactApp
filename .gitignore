@@ -1,0 +1,3 @@
+# Project exclude paths
+/.prod/
+/node_modules/

@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-private-methods",
+    "@babel/plugin-syntax-class-properties",
+    "@babel/plugin-transform-async-to-generator",
+    "@babel/plugin-transform-runtime",
+    "babel-plugin-syntax-async-functions",
+    "@babel/plugin-proposal-async-generator-functions"
+  ],
+  "presets":
+  [
+    "@babel/env",
+    "@babel/react"
+  ]
+}
