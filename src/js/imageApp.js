@@ -109,8 +109,8 @@ class ImageApp extends React.Component {
 
         if (
             groupId.toUpperCase()===this.props.images.currentGroup.toUpperCase()
-            && this.props.images.data.length===0
-        ) this.#addNewPhoto(this.props.images.currentPage+1);
+            && this.props.images.data===null
+        )  this.#addNewPhoto(this.props.images.currentPage+1);
     }
 
     render() {
@@ -167,7 +167,7 @@ class ImageApp extends React.Component {
                     <h2 className="big-logo-container__header">React&nbsp;Redux Photo&nbsp;App</h2>
                 </section>
                 {
-                    images.data.length>0 ?
+                    images.data!=null && images.data.length>0 ?
                         <PhotoList
                             OnResizeEvent={this.#photoElementsResizeEventHandler}
                             ImageList={images.forRender}
@@ -177,7 +177,7 @@ class ImageApp extends React.Component {
                             OnLikeAction={(data) => this.#onLikeActionEventHandler({...data, isDetail: false})}
                             UrlData={this.props.urlData}
                         /> :
-                        <span className='images-not-found-text'>Изображения не найдены</span>
+                        (images.processState==false ? <span className='images-not-found-text'>Изображения не найдены</span> : null)
                 }
             </main>
 

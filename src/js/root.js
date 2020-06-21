@@ -43,7 +43,7 @@ import {onLoadDetailImageAction} from "./actions/imageActions";
             },
             DetailImage:undefined,
             ListImages: {
-                data: [],
+                data: null,
                 forRender:[],
                 processState: false,
                 currentGroup: '',

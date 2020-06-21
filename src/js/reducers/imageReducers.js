@@ -27,6 +27,8 @@ const ImageReducers = (state= {},action) => {
 
     switch (action.type) {
         case LOAD_NEW_IMAGES_COMPLITED_ACTION:
+                 newState.ListImages.data=newState.ListImages.data===null ? [] : newState.ListImages.data;
+
                 forEach (loadedImages,(image)=>
                     (!newState.ListImages.data.some((itemB)=>image.id===itemB.id)) ? newState.ListImages.data.push(image) :null);
 
@@ -35,7 +37,7 @@ const ImageReducers = (state= {},action) => {
                 newState.ListImages.currentPage++;
                 break;
         case CHANGE_IMAGES_GROUP_ACTION:
-            newState.ListImages.data=[];
+            newState.ListImages.data=null;
             newState.ListImages.forRender=[];
             newState.ListImages.currentGroup=action.group;
             newState.ListImages.currentPage=0;
