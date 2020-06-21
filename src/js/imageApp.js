@@ -166,21 +166,23 @@ class ImageApp extends React.Component {
                     </div>
                     <h2 className="big-logo-container__header">React&nbsp;Redux Photo&nbsp;App</h2>
                 </section>
-
-                <PhotoList
-                    OnResizeEvent={this.#photoElementsResizeEventHandler}
-                    ImageList={images.forRender}
-                    Width={images.imageWidth}
-                    WidthSteps={[...this.props.widthSteps]}
-                    ImgDefaultWidth={images.imageWidth}
-                    OnLikeAction={(data)=>this.#onLikeActionEventHandler({...data,isDetail:false})}
-                    UrlData={this.props.urlData}
-                />
+                {
+                    images.data.length>0 ?
+                        <PhotoList
+                            OnResizeEvent={this.#photoElementsResizeEventHandler}
+                            ImageList={images.forRender}
+                            Width={images.imageWidth}
+                            WidthSteps={[...this.props.widthSteps]}
+                            ImgDefaultWidth={images.imageWidth}
+                            OnLikeAction={(data) => this.#onLikeActionEventHandler({...data, isDetail: false})}
+                            UrlData={this.props.urlData}
+                        /> :
+                        <span className='images-not-found-text'>Изображения не найдены</span>
+                }
             </main>
 
             <Route exact path='/:groupId/:photoId' render={(props1)=>{
                 document.body.style.overflowY='hidden';
-                console.log('aaaaa');
                 return (
                     detailImage!=null ?
                         <PhotoDetail

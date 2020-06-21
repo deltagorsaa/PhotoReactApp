@@ -64,7 +64,7 @@
   font-weight: 500;
 }
 
-.search-form-fieldset__submit {
+.search-form-fieldset__submit{
   background-color: transparent;
   outline: none;
   border: 0;
@@ -227,6 +227,14 @@
 
 .like-heart-icon.isliked {
   color:red;
+}
+
+.images-not-found-text {
+  font-size: 20px;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+  margin-top: 50px;
 }
 
 .popup-container {

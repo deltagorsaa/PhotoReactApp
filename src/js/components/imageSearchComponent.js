@@ -29,6 +29,7 @@ const imageSearch=(props)=>{
                            placeholder="Поиск по описанию"
                            onKeyPress={onKeyPressed}
                     />
+                    <button type='submit' aria-label='submit' className='search-form-fieldset__submit'>Найти</button>
                 </div>
             </fieldset>
         </form>
