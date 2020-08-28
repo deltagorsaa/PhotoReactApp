@@ -1,18 +1,18 @@
 import React from 'react';
 
-const imageSearch=(props)=>{
-    const inputElementRef=React.createRef();
+const imageSearch = (props) => {
+    const inputElementRef = React.createRef();
 
-    const {EntryComplited}=props;
+    const {EntryComplited} = props;
 
-    const onFormSubmit=(evt)=>{
+    const onFormSubmit = (evt) => {
         EntryComplited (inputElementRef.current.value);
-        inputElementRef.current.value='';
+        inputElementRef.current.value = '';
         inputElementRef.current.blur();
         evt.preventDefault();
     };
 
-    const onKeyPressed=(evt)=>
+    const onKeyPressed = (evt) =>
         (evt.key.match(/[a-zA-Zа-яА-Я0-9\s\b]/u) === null) ? evt.preventDefault() : null;
 
     return (
@@ -21,7 +21,7 @@ const imageSearch=(props)=>{
                 <legend></legend>
                 <div className="search-form-fieldset-int">
                     <button type='submit' aria-label='submit' className='search-form-fieldset__submit'>
-                        <img src='../img/search.png' srcSet='../img/search.png 1x,../img/search@2x.png 2x,../img/search@3x.png 3x'/>
+                        <img src='./img/search.png' srcSet='./img/search.png 1x,./img/search@2x.png 2x,./img/search@3x.png 3x'/>
                     </button>
                     <input ref={inputElementRef}
                            className="search-form-fieldset__groupname-input"

@@ -1,14 +1,14 @@
 import React from 'react';
 
-const userAuth=(props)=>{
-    const {onLogonAction,onLogoffAction, logonState,currentUserName} = props
+const userAuth = (props) => {
+    const {onLogonAction, onLogoffAction, logonState, currentUserName} = props
     return (
     <div className="user-data-container">
         {
-            logonState===true ? (<span className="user-data-container__user-name">{ currentUserName }</span>) : null
+            logonState === true ? (<span className="user-data-container__user-name">{ currentUserName }</span>) : null
         }
         {
-            logonState===true  ?
+            logonState === true  ?
                 (<button
                     className="user-data-container__logoff-button"
                     onClick={onLogoffAction}

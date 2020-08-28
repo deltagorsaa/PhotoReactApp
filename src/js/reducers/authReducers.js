@@ -1,13 +1,13 @@
 import {SET_AUTH_CODE_ACTION,SET_CURRENT_USER_ACTION} from '../actions/authActions'
 
-const AuthReducers = (state={},action) => {
-    const newState={...state };
+const AuthReducers = (state= {}, action) => {
+    const newState = {...state };
 
-    const setAuth=(code)=>{
+    const setAuth = (code) => {
 
         switch (code) {
             case null:
-                newState.currentUserName=undefined;
+                newState.currentUserName = undefined;
                 return 'guest';
             case undefined:
                 return 'guest';
@@ -18,11 +18,11 @@ const AuthReducers = (state={},action) => {
 
     switch (action.type) {
         case SET_AUTH_CODE_ACTION:
-            newState.logonState=setAuth(action.code);
-            newState.authUnsplashObject=action.unsplashApi;
+            newState.logonState = setAuth(action.code);
+            newState.authUnsplashObject = action.unsplashApi;
             break;
         case SET_CURRENT_USER_ACTION:
-            newState.currentUserName=action.currentUserName;
+            newState.currentUserName = action.currentUserName;
             break;
     }
     return newState;

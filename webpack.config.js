@@ -1,18 +1,18 @@
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
-const path= require('path');
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const mode='production';//production development
+const mode = 'production';//production development
 
-const webpackConfig= {
+const webpackConfig = {
     entry: {
         "js/root": ["./src/js/root.js"]
     },
     output: {
-        path: path.resolve(__dirname,'./.prod/'),
+        path: path.resolve(__dirname, './.prod/'),
         filename: "[name].js",
-        publicPath: mode=='development' ? "http://192.168.199.12:8080/" : ''
+        publicPath: mode == 'development' ? "http://192.168.199.12:8080/" : ''
     },
     optimization: {
         minimizer: [
@@ -98,4 +98,4 @@ const webpackConfig= {
 };
 
 
-module.exports=webpackConfig;
+module.exports = webpackConfig;

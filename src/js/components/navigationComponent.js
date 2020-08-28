@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-const navigationMenu=(props)=>{
-    const {MenuGroupList}=props;
+const navigationMenu = (props) => {
+    const {MenuGroupList} = props;
 
     return (
         <ul className="navigation-list">

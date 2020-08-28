@@ -1,8 +1,8 @@
 import React from 'react';
 
-const PopupComponent=(props)=>{
-    const {closeAction}=props;
-    const onClickActionEventHandler=(evt)=> evt.currentTarget === evt.target ? closeAction() : null;
+const PopupComponent = (props) => {
+    const {closeAction} = props;
+    const onClickActionEventHandler = (evt) => evt.currentTarget === evt.target ? closeAction() : null;
 
     return (
      <div className='popup-container' onClick={onClickActionEventHandler}>

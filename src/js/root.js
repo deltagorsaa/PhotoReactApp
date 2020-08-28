@@ -13,7 +13,7 @@ import {onLogonAction} from "./actions/authActions";
 import {onLoadDetailImageAction} from "./actions/imageActions";
 
 (function () {
-    const store=createStore(combineReducers,{
+    const store = createStore(combineReducers,{
         Auth: {
             currentUserName:undefined,
             apiAccessKey: '7SFIYAIM7fsoAdrB-kiBNM9kivcyHNRWRAL6ygs0woQ',
@@ -52,7 +52,7 @@ import {onLoadDetailImageAction} from "./actions/imageActions";
                 columnCount:undefined,
                 imageWidth:400
             },
-            WidthSteps:[7680,5120,4096,3200,2560,2048,1920,1400,1024,800,640,320]
+            WidthSteps:[7680, 5120, 4096, 3200, 2560, 2048, 1920, 1400, 1024, 800, 640, 320]
         },
         UserDialog:{
             isShow:false,
@@ -63,13 +63,13 @@ import {onLoadDetailImageAction} from "./actions/imageActions";
         }
         ,applyMiddleware(ReduxThunk));
 
-    let RootModule=(props)=>{
-        const {onLogonAction,detailImage}=props;
-        const {logonState,authUnsplashObject}=props.auth;
+    let RootModule = (props) => {
+        const {onLogonAction, detailImage} = props;
+        const {logonState, authUnsplashObject} = props.auth;
 
-        const onAnonimLogonAction=()=>onLogonAction({code:null,auth:props.auth});
-        const onPreUserLogonAction=()=>onLogonAction({code:undefined,auth:props.auth});
-        const onUserLogonAction=(code)=>onLogonAction({code,auth:props.auth});
+        const onAnonimLogonAction = () => onLogonAction({code:null, auth:props.auth});
+        const onPreUserLogonAction = () => onLogonAction({code:undefined, auth:props.auth});
+        const onUserLogonAction = (code) => onLogonAction({code, auth:props.auth});
 
         if (logonState === false) onAnonimLogonAction();
         return (
@@ -78,7 +78,7 @@ import {onLoadDetailImageAction} from "./actions/imageActions";
                     const qParams = new URLSearchParams(props.location.search);
                     if (!(logonState === true) && qParams.has('code') && Array.from(qParams).length === 1) {
                         onUserLogonAction(qParams.get('code'));
-                        const lastUrl=getFromSessionStorage('lastUrl');
+                        const lastUrl = getFromSessionStorage('lastUrl');
                         props.history.replace('/');
                         return (<Redirect push to={`${lastUrl==='all' ? '' :(lastUrl || '')}`}/>);
                     }
@@ -103,13 +103,13 @@ import {onLoadDetailImageAction} from "./actions/imageActions";
                         return ( <ImageApp {...props1} LogOn={onPreUserLogonAction} LogOff={onAnonimLogonAction}/>)
                     }}/>
 
-                    <Route exact path='/:groupId?' render={(props)=>logonState === false ? (null) : (<ImageApp {...props} LogOn={onPreUserLogonAction} LogOff={onAnonimLogonAction}/>)}/>
+                    <Route exact path='/:groupId?' render={(props) => logonState === false ? (null) : (<ImageApp {...props} LogOn={onPreUserLogonAction} LogOff={onAnonimLogonAction}/>)}/>
                 </Switch>
             </Router>
         );
     };
 
-    const mapStateToProps=(state)=>{
+    const mapStateToProps = (state) => {
         return {
             auth:state.Auth,
             images: state.Images.ListImages,
@@ -117,14 +117,14 @@ import {onLoadDetailImageAction} from "./actions/imageActions";
         };
     };
 
-    const mapDispatchToProps=(dispatch)=>{
+    const mapDispatchToProps = (dispatch) => {
         return {
-            onLogonAction: (props)=>dispatch(onLogonAction(props)),
-            onLoadDetailImageAction:(props)=>dispatch(onLoadDetailImageAction(props))
+            onLogonAction: (props) => dispatch(onLogonAction(props)),
+            onLoadDetailImageAction:(props) => dispatch(onLoadDetailImageAction(props))
         };
     };
 
-    RootModule=connect( mapStateToProps, mapDispatchToProps )(RootModule);
+    RootModule = connect( mapStateToProps, mapDispatchToProps )(RootModule);
 
     ReactDOM.render(
         <Provider store={store}>

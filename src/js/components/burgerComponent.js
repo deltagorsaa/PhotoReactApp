@@ -1,7 +1,7 @@
 import React from 'react';
 
-const BurgerComponent=(props)=>{
-    const {OnClickAction}=props
+const BurgerComponent = (props) => {
+    const {OnClickAction} = props
 
     return (
         <div className='app-menu-component'>
